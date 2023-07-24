@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <stddef.h>
 
 /**
  * _printf -  function that prints output
@@ -11,54 +12,41 @@
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int x, char_printed = 0;
+	int x;
+	int buffend = 0;
+	doube *total;
+	char *holder;
+	doubel totalBuffer = 0;
+	char buffer[BUFSIZE];
+	char *(*spec_func)(va_list) = NULL;
 
 	if (format == NULL)
 		return (-1);
 
 	va_start(list, format);
+	total = &totalBuffer;
 
-	while (*format)
+	for (x = 0; x < BUFSIZE; x++)
+		buffer[x] = 0;
+
+	for (x = 0; format && format[x]; x++)
 	{
-		if(*format == '%')
+		if (format[x] == '%')
 		{
-			format++;
-		}
-
-		if (*format == 'c')
-		{
-			int x = va_args(list, int);
-			_putchar(c);
-			char_printed++;
-		}
-		else if (*format == 's')
-		{
-			char *s = va_args(list, char *);
-			while (*s)
-			{
-				_putchar(*s);
-				char_printed++;
-				s++;
-			}
-		}
-		else if (*format == '%')
-		{
-			_putchar('%');
-			char_printed++;
-		}
-		else 
-		{
-			_putchar('%');
-			_putchar(*format);
-			char_printed += 2;
+			x++;
+			spec_func = get_spec_func(format[x]);
+			holder = (spec_func) ? spec_func(valist) : nothing_found(format[x]);
+			if (holder)
+				buffend = alloc_buffer(holder, _strlen(holder), buffer, buffend, total);
 		}
 		else
 		{
-		_putchar(*format);
-		char_printed++;
+			holder = chartos(format[x]);
+			buffend = alloc_buffer(holder, 1, buffer, buffend, total);
 		}
-		format++;
 	}
+	_puts(buffer, buffend);
 	va_end(list);
-	return (char_printed);
+
+	return (totalBuffer + buffend);
 }
