@@ -14,9 +14,9 @@ int _printf(const char *format, ...)
 	va_list list;
 	int x;
 	int buffend = 0;
-	doube *total;
+	double *total;
 	char *holder;
-	doubel totalBuffer = 0;
+	double totalBuffer = 0;
 	char buffer[BUFSIZE];
 	char *(*spec_func)(va_list) = NULL;
 
@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 		{
 			x++;
 			spec_func = get_spec_func(format[x]);
-			holder = (spec_func) ? spec_func(valist) : nothing_found(format[x]);
+			holder = (spec_func) ? spec_func(list) : nothing_found(format[x]);
 			if (holder)
 				buffend = alloc_buffer(holder, _strlen(holder), buffer, buffend, total);
 		}
