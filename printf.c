@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 
 		if (*format == 'c')
 		{
-			char c = va_args(list, int);
+			int x = va_args(list, int);
 			_putchar(c);
 			char_printed++;
 		}
