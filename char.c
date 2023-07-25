@@ -13,6 +13,13 @@
 int print_char(va_list list)
 {
 	char c = va_arg(list, int);
+	char buffer[BUFF_SIZE];
+
+	int flags = 0;
+	int width = 0;
+	int precision = 0;
+	int size = 0;
+	
 
 	return (handle_write_char(c, buffer, flags, width, precision, size));
 }
