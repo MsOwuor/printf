@@ -70,7 +70,7 @@ char _rev(va_list s)
  * @n: inputs the  string
  * Return: binaryString
  */
-char *binary_find(va_list n)
+char _binary(va_list n)
 {
 	int x, y;
 	int binaryNum[32], arg;

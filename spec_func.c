@@ -71,7 +71,7 @@ char _int(va_list npoint)
 	if (string == NULL)
 		return (NULL);
 	if (x < 0)
-		string[i++] = '-';
+		string[x++] = '-';
 	while (expo >= 1)
 	{
 		string[s++] = (((res / expo) % 10) * -1 + '0');
@@ -84,7 +84,7 @@ char _int(va_list npoint)
  * @unsign: int from va_args
  * Return: string's pointer
  */
-char *unsigned_find(va_list unsign)
+char _unsigned(va_list unsign)
 {
 	unsigned int x, res, temp, expo, count;
 	char *string;
