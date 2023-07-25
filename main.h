@@ -9,36 +9,21 @@
 
 /**
  * struct spec_types - function of specifier
- * @spec: specifier
+ * @sp: specifier
  * @f: function associated
  */
-typedef struct spec_types
+typedef struct sp_types
 {
-	char *spec;
-	char *(*f)();
-}
-s_types;
+	char *sp;
+	char *(*f)(va_list);
+}sp;
 
 int _putchar(char c);
-char *(*get_spec_func(char s))(va_list);
+int *(*get_spec_func(char s))(va_list);
 int _printf(const char *format, ...);
-char *char_find(va_list c);
-char *string_find(va_list s);
-char *percent_find(void);
-char *int_find(va_list npoint);
-char *unsigned_find(va_list unsign);
-int _strlen(char *s);
-void _puts(char *buffer, int size);
-char *chartos(char c);
-char *nothing_found(char c);
-char *_memcpy(char *dest, char *src, unsigned int n, unsigned int bufferlen);
-int alloc_buffer(char *hold, int hlen, char *buffer, int size, double *total);
-char *rev_find(va_list s);
-char *rot13_find(va_list s);
-char *binary_find(va_list n);
-char *octal_find(va_list n);
-char *hex_find(va_list n);
-char *HEX_find(va_list n);
-char *address_find(va_list n);
-char *rev_string(char *a, int n);
+int print_char(va_list list);
+int print_string(va_list list);
+int print_decimal(va_list list);
+int print_int(va_list list);
+
 #endif /* MAIN_H */

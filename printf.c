@@ -1,52 +1,86 @@
 #include "main.h"
 #include <stdio.h>
 #include <stddef.h>
+#include <stdarg.h>
+#include <stdlib.h>
+
+/**
+ * get_func -  selecte the function to handle the format
+ * @format: format
+ * Return: function pointer to the corresponding function
+ */
+
+int (*get_func(char format))(va_list)
+{
+	switch (format)
+	{
+		case 'c':
+
+			return (&print_char);
+			
+		case 's':
+			return (&print_string);
+
+		case 'd':
+			return (&print_decimal);
+		case 'i':
+			return (&print_int);
+		default:
+			return (NULL);
+	}
+}
+
 
 /**
  * _printf -  function that prints output
  * @format: character string, composed of zero and more directives
  *
- * Return:  the number of characters printed
+ * Return:  the number of characters print
  */
 
 int _printf(const char *format, ...)
 {
-	va_list list;
-	int x;
-	int buffend = 0;
-	double *total;
-	char *holder;
-	double totalBuffer = 0;
-	char buffer[BUFSIZE];
-	char *(*spec_func)(va_list) = NULL;
-
 	if (format == NULL)
-		return (-1);
-
-	va_start(list, format);
-	total = &totalBuffer;
-
-	for (x = 0; x < BUFSIZE; x++)
-		buffer[x] = 0;
-
-	for (x = 0; format && format[x]; x++)
 	{
-		if (format[x] == '%')
-		{
-			x++;
-			spec_func = get_spec_func(format[x]);
-			holder = (spec_func) ? spec_func(list) : nothing_found(format[x]);
-			if (holder)
-				buffend = alloc_buffer(holder, _strlen(holder), buffer, buffend, total);
-		}
-		else
-		{
-			holder = chartos(format[x]);
-			buffend = alloc_buffer(holder, 1, buffer, buffend, total);
-		}
-	}
-	_puts(buffer, buffend);
-	va_end(list);
+		int char_printed = 0;
+		int x;
+		int (*i)(va_list);
+		va_list list;
 
-	return (totalBuffer + buffend);
+		va_start(list, format);
+		x = 0;
+
+		if (format[0] == '%' && format[1] == '\0')
+			return (-1);
+
+		while (format == NULL && format[x] == '\0')
+		{
+			if (format[x] == '%')
+			{
+				if (format[x + 1] == '%')
+				{
+					char_printed += _putchar(format[x]);
+					x += 2;
+				}
+				else
+				{
+					i = get_func(format[x + 1]);
+					if (i)
+						char_printed += i(list);
+					else
+						char_printed = _putchar(format[x]) + _putchar(format[x + 1]);
+					x += 2;
+				}
+			}
+			else
+			{
+				char_printed += _putchar(formt[x]);
+				x++;
+			}
+		}
+		va_end(list);
+
+		return (char_printed);
+	}
+	return (-1);
 }
