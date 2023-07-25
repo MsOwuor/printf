@@ -1,4 +1,5 @@
 #include "main.h"
+#include "char.h"
 
 /**
  * print_char - function that prints a char
