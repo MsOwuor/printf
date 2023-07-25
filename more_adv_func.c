@@ -8,7 +8,7 @@
  * Return: hex
  */
 
-char *hex_find(va_list n)
+char *_hex(va_list n)
 {
 	char *hexaDeciNum;
 	unsigned int x, temp, arg, hold, size;
@@ -64,7 +64,7 @@ char *_HEX(va_list n)
  * Return: the address
  */
 
-char *address_find(va_list n)
+char *_address(va_list n)
 {
 	char *address;
 	unsigned long int x, temp, arg, hold, size;

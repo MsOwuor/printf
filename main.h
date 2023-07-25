@@ -17,7 +17,7 @@ typedef struct spec_types
 {
 	char *spec;
 	char *(*f)();
-}s_types;
+} s_types;
 
 int _printf(const char *format, ...);
 int _putchar(char c);
