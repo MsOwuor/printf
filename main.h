@@ -4,7 +4,7 @@
 #define BUFSIZE 1024
 
 #include <stdio.h>
-#include <stdarg.>
+#include <stdarg.h>
 #include <stddef.h>
 
 /**
