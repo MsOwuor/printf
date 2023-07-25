@@ -14,10 +14,6 @@ int _printf(const char *format, ...)
 	int x, buffend = 0;
 	va_list valist;
 	char *holder;
-<<<<<<< HEAD
-	char  totalBuffer = 0;
-=======
->>>>>>> refs/remotes/origin/main
 	double totalBuffer = 0;
 	double *total;
 	char *(*spec_func)(va_list) = NULL;

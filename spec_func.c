@@ -84,11 +84,7 @@ char *_int(va_list npoint)
  * @unsign: int from va_args
  * Return: string's pointer
  */
-<<<<<<< HEAD
-char _unsigned(va_list unsign)
-=======
 char *_unsigned(va_list unsign)
->>>>>>> refs/remotes/origin/main
 {
 	unsigned int x, res, temp, expo, count;
 	char *string;
