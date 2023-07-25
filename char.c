@@ -10,7 +10,9 @@
  * @size: specifies  size
  * Return: number of characters printed
  */
-int print_char(va_list list)
+int handle_print(const char *fmt, int *i,
+va_list list, char buffer[], int flags, int width, int precision, int size);
+
 {
 	char c = va_arg(list, int);
 	char buffer[BUFF_SIZE];
