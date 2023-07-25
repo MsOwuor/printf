@@ -12,16 +12,16 @@
  * Return: number of characters printed
  */
 int handle_print(const char *fmt, int *i,
-va_list list, char buffer[], int flags, int width, int precision, int size);
+va_list list, char buffer[], int flags, int width, int precision, int size)
 
 {
 	char c = va_arg(list, int);
 	char buffer[BUFF_SIZE];
 
-	int flags = 0;
-	int width = 0;
-	int precision = 0;
-	int size = 0;
+	flags = 0;
+	width = 0;
+	precision = 0;
+	size = 0;
 	
 
 	return (handle_write_char(c, buffer, flags, width, precision, size));
