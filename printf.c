@@ -18,13 +18,13 @@ int (*get_func(char format))(va_list);
 
 int _printf(const char *format, ...)
 {
-	if (format == NULL)
-	return (-1);
-
 	int char_printed = 0;
 	int x;
 	int (*i)(va_list);
 	va_list list;
+
+	if (format == NULL)
+        return (-1);
 
 	va_start(list, format);
 	x = 0;
