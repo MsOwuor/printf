@@ -14,13 +14,17 @@ int _printf(const char *format, ...)
 	int x, buffend =0;
 	va_list valist;
 	char *holder;
+<<<<<<< HEAD
+	char  totalBuffer = 0;
+=======
 	double totalBuffer = 0;
+>>>>>>> bced3b6bbf351de9e568dff2c4e0fc448d0d56a8
 	double *total;
 	char *(*spec_func)(va_list) = NULL;
 	char buffer[BUFSIZE];
 
 
-	if (!format)
+	if (format == NULL)
 		return (-1);
 	va_start(valist, format);
 	total = &totalBuffer;
