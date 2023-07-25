@@ -1,11 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
+#include <stdarg.h>
+#include <stdio.h>
+#include <unistd.h>
 
-#define BUFSIZE 1024
-
-#include <stdarg.h> /* va_list */
-#include <stdlib.h> /* malloc, free */
-#include <unistd.h> /* write */
+#define BUFF_SIZE 1024
 
 /**
  * struct spec_types - function of specifier
@@ -19,7 +18,7 @@ typedef struct sp_types
 }sp;
 
 int _putchar(char c);
-int *(*get_spec_func(char s))(va_list);
+int (*get_spec_func(char s))(va_list);
 int _printf(const char *format, ...);
 int print_char(va_list list);
 int print_string(va_list list);

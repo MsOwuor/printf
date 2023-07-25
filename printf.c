@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 /**
- * get_func -  selecte the function to handle the format
+ * get_func -  select the function to handle the format
  * @format: format
  * Return: function pointer to the corresponding function
  */
