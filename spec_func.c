@@ -7,7 +7,7 @@
  * @c: is the char
  * Return: the string
  */
-char _char(va_list c)
+char *_char(va_list c)
 {
 	char string[2];
 	char *p;
@@ -23,7 +23,7 @@ char _char(va_list c)
  * @s: is the string
  * Return: "string"
  */
-char _string(va_list s)
+char *_string(va_list s)
 {
 	char *string;
 
@@ -37,7 +37,7 @@ char _string(va_list s)
  * _percent - passes a '%' sign
  * Return: percent sign as a character
  */
-char _percent(void)
+char *_percent(void)
 {
 	char *string;
 
@@ -50,7 +50,7 @@ char _percent(void)
  * @npoint: integer from va_args
  * Return: pointer to string
  */
-char _int(va_list npoint)
+char *_int(va_list npoint)
 {
 	int x;
 	int s, res, temp, expo, count;
@@ -84,7 +84,11 @@ char _int(va_list npoint)
  * @unsign: int from va_args
  * Return: string's pointer
  */
+<<<<<<< HEAD
 char _unsigned(va_list unsign)
+=======
+char *_unsigned(va_list unsign)
+>>>>>>> refs/remotes/origin/main
 {
 	unsigned int x, res, temp, expo, count;
 	char *string;

@@ -8,7 +8,11 @@
  * Return: hex
  */
 
+<<<<<<< HEAD
 char _hex(va_list n)
+=======
+char *_hex(va_list n)
+>>>>>>> refs/remotes/origin/main
 {
 	char *hexaDeciNum;
 	unsigned int x, temp, arg, hold, size;
@@ -64,7 +68,11 @@ char *_HEX(va_list n)
  * Return: the address
  */
 
+<<<<<<< HEAD
 char _address(va_list n)
+=======
+char *_address(va_list n)
+>>>>>>> refs/remotes/origin/main
 {
 	char *address;
 	unsigned long int x, temp, arg, hold, size;

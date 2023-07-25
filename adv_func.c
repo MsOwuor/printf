@@ -9,7 +9,7 @@
  * Return:  rot13
  */
 
-char _rot13(va_list s)
+char *_rot13(va_list s)
 {
 	int r, t, temp, len;
 	char check[] = "AaZz";
@@ -46,7 +46,7 @@ char _rot13(va_list s)
  * @s: it inputs the string
  * Return: rev
  */
-char _rev(va_list s)
+char *_rev(va_list s)
 {
 	char *arg, *rev;
 	int x, len;
@@ -93,7 +93,7 @@ char _binary(va_list n)
  * Return: string's pointer
  */
 
-char _octal(va_list n)
+char *_octal(va_list n)
 {
 	unsigned long int pos, temp, result, oct, x;
 	char *string;
