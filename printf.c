@@ -74,7 +74,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				char_printed += _putchar(formt[x]);
+				char_printed += _putchar(format[x]);
 				x++;
 			}
 		}
